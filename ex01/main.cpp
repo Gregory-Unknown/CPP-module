@@ -2,14 +2,6 @@
 
 void	ft_print_menu()
 {
-	std::cout << "A poor excuse of a phonebook ;)" << std::endl;
-	std::cout << " ____         _____   _________   ____     __    __    __\n";
-	std::cout << "|     \\      /     | | ________| |    \\   |  |  |  |  |  |\n";
-	std::cout << "|  |\\  \\    /  /|  | | |_______  |  |\\ \\  |  |  |  |  |  |\n";
-	std::cout << "|  | \\  \\  /  / |  | |  _______| |  | \\ \\ |  |  |  |  |  |\n";
-	std::cout << "|  |  \\  \\/  /  |  | | |_______  |  |  \\ \\|  |  |  |__|  |\n";
-	std::cout << "|__|   \\____/   |__| |_________| |__|   \\____|  |________|\n";
-	std::cout << std::endl;
 	std::cout << "COMMANDS :" << std::endl;
 	std::cout << std::endl;
 	std::cout << "ADD" << " | " "SEARCH" << " | " << "EXIT" << std::endl;
@@ -32,15 +24,29 @@ int	main()
 		if (!strcmp(input.c_str(), "ADD"))
 		{
 			if (i < MAX_CONTACTS)
-				phoneBook[i++] = ft_add();
+			{
+				phoneBook[i].ft_add(i);
+				i++;
+			}
 			else
-				phoneBook[j++] = ft_add();
+			{
+				phoneBook[j].ft_add(j);
+				j++;
+			}
 			if (j + 1 == MAX_CONTACTS)
 				j = 0;
 		}
 		else if (!strcmp(input.c_str(), "SEARCH"))
 		{
-
+			std::cout << "|" << std::setw(10) << "index"
+				<< "|" << std::setw(10) << "first name"
+				<< "|" << std::setw(10) << "last name"
+				<< "|" << std::setw(10) << "nickname"
+				<< "|" << std::endl;
+			for(int k = 0; k < i; k++)
+			{
+				phoneBook[k].ft_search();
+			}
 		}
 	}
 }

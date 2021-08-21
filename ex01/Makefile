@@ -1,15 +1,17 @@
 NAME		= phonebook
 
-SRCS		= .cpp
+SRCS		= main.cpp phonebook.cpp
 
 OBJ			= $(SRCS:.c=.o)
 
-CC			= clang++ -g -Wall -Wextra -Werror
+CC			= clang++
+
+FLAGS		= -g -Wall -Wextra -Werror
 
 RM			= rm -f
 
 $(NAME):	$(OBJ)
-			$(CC) -o $(NAME) $(OBJ)
+			$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 all:		$(NAME)
 

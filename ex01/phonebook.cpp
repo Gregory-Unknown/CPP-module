@@ -7,6 +7,10 @@ PhoneBook::PhoneBook()
 PhoneBook::~PhoneBook()
 {
 }
+int			PhoneBook::ft_get_index()
+{
+	return (m_index);
+}
 std::string	PhoneBook::ft_get_firstName()
 {
 	return (m_firstName);
@@ -26,6 +30,10 @@ std::string	PhoneBook::ft_get_phoneNumber()
 std::string	PhoneBook::ft_get_darkestSecret()
 {
 	return (m_darkestSecret);
+}
+void	PhoneBook::ft_set_index(int index)
+{
+	m_index = index;
 }
 void	PhoneBook::ft_set_firstName(std::string firstName)
 {
@@ -48,30 +56,49 @@ void	PhoneBook::ft_set_darkestSecret(std::string darkestSecret)
 	m_darkestSecret = darkestSecret;
 }
 
-PhoneBook	ft_add()
+void	PhoneBook::ft_add(int index)
 {
 	std::string str;
-	PhoneBook contact;
 
+	ft_set_index(index);
 	std::cout << "Please, enter first name : ";
 	std::cin >> str;
-	contact.ft_set_firstName(str);
+	ft_set_firstName(str);
 
 	std::cout << "Please, enter last name : ";
 	std::cin >> str;
-	contact.ft_set_lastName(str);
+	ft_set_lastName(str);
 
 	std::cout << "Please, enter nickname : ";
 	std::cin >> str;
-	contact.ft_set_nickName(str);
+	ft_set_nickName(str);
 
 	std::cout << "Please, enter phone number : ";
 	std::cin >> str;
-	contact.ft_set_phoneNumber(str);
+	ft_set_phoneNumber(str);
 
 	std::cout << "Please, enter darkest secret : ";
 	std::cin >> str;
-	contact.ft_set_darkestSecret(str);
+	ft_set_darkestSecret(str);
+}
 
-	return (contact);
+std::string	ft_mod(std::string str)
+{
+	std::string res;
+
+	res = str;
+	if (res.size() > 10)
+	{
+		res.insert(9, ".");
+		res = res.substr(0, 10);
+	}
+	return (res);
+}
+void	PhoneBook::ft_search()
+{
+	std::cout << "|" << std::setw(10) << (m_index + 1)
+				<< "|" << std::setw(10) << ft_mod(m_firstName)
+				<< "|" << std::setw(10) << ft_mod(m_lastName)
+				<< "|" << std::setw(10) << ft_mod(m_nickName)
+				<< "|" << std::endl;
 }
