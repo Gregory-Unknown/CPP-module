@@ -96,7 +96,7 @@ std::string	ft_mod(std::string str)
 }
 void	PhoneBook::ft_search()
 {
-	std::cout << "|" << std::setw(10) << (m_index + 1)
+	std::cout << "|" << std::setw(10) << m_index
 				<< "|" << std::setw(10) << ft_mod(m_firstName)
 				<< "|" << std::setw(10) << ft_mod(m_lastName)
 				<< "|" << std::setw(10) << ft_mod(m_nickName)

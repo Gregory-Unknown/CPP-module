@@ -25,12 +25,12 @@ int	main()
 		{
 			if (i < MAX_CONTACTS)
 			{
-				phoneBook[i].ft_add(i);
+				phoneBook[i].ft_add(i + 1);
 				i++;
 			}
 			else
 			{
-				phoneBook[j].ft_add(j);
+				phoneBook[j].ft_add(j + 1);
 				j++;
 			}
 			if (j + 1 == MAX_CONTACTS)
@@ -39,10 +39,10 @@ int	main()
 		else if (!strcmp(input.c_str(), "SEARCH"))
 		{
 			std::cout << "|" << std::setw(10) << "index"
-				<< "|" << std::setw(10) << "first name"
-				<< "|" << std::setw(10) << "last name"
-				<< "|" << std::setw(10) << "nickname"
-				<< "|" << std::endl;
+					<< "|" << std::setw(10) << "first name"
+					<< "|" << std::setw(10) << "last name"
+					<< "|" << std::setw(10) << "nickname"
+					<< "|" << std::endl;
 			for(int k = 0; k < i; k++)
 			{
 				phoneBook[k].ft_search();
