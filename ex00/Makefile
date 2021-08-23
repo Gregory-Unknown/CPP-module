@@ -2,7 +2,7 @@ NAME		= megaphone
 
 SRCS		= megaphone.cpp
 
-OBJ			= $(SRCS:.c=.o)
+OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++ -g -Wall -Wextra -Werror
 

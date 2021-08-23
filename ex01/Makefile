@@ -2,7 +2,7 @@ NAME		= phonebook
 
 SRCS		= main.cpp phonebook.cpp
 
-OBJ			= $(SRCS:.c=.o)
+OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++
 

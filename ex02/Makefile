@@ -2,7 +2,7 @@ NAME		= account
 
 SRCS		= test.cpp Account.cpp
 
-OBJ			= $(SRCS:.c=.o)
+OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++
 
