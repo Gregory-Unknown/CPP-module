@@ -6,7 +6,7 @@
 /*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 11:17:07 by esobchak          #+#    #+#             */
-/*   Updated: 2021/08/23 11:17:12 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/08/24 13:43:46 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char **argv)
 		{
 			std::cout << (char)toupper(argv[i][j]);
 		}
-		std::cout << " ";
 	}
 	std::cout << std::endl;
 	return (0);

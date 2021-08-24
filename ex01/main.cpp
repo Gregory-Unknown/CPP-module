@@ -6,11 +6,12 @@
 /*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 11:17:02 by esobchak          #+#    #+#             */
-/*   Updated: 2021/08/23 11:17:03 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/08/24 16:10:28 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include "contact.hpp"
 
 void	ft_print_menu()
 {
@@ -22,43 +23,18 @@ void	ft_print_menu()
 
 int	main()
 {
-	int			i;
-	int			j;
 	std::string input;
-	PhoneBook	phoneBook[MAX_CONTACTS];
+	PhoneBook	phoneBook;
 
-	i = 0;
-	j = 0;
-	while (strcmp(input.c_str(), "EXIT"))
+	while (1)
 	{
 		ft_print_menu();
-		getline(std::cin, input, '\n');
-		if (!strcmp(input.c_str(), "ADD"))
-		{
-			if (i < MAX_CONTACTS)
-			{
-				phoneBook[i].ft_add(i + 1);
-				i++;
-			}
-			else
-			{
-				phoneBook[j].ft_add(j + 1);
-				j++;
-			}
-			if (j + 1 == MAX_CONTACTS)
-				j = 0;
-		}
-		else if (!strcmp(input.c_str(), "SEARCH"))
-		{
-			std::cout << "|" << std::setw(10) << "index"
-					<< "|" << std::setw(10) << "first name"
-					<< "|" << std::setw(10) << "last name"
-					<< "|" << std::setw(10) << "nickname"
-					<< "|" << std::endl;
-			for(int k = 0; k < i; k++)
-			{
-				phoneBook[k].ft_search();
-			}
-		}
+		std::getline(std::cin, input);
+		if (input == "EXIT" || std::cin.eof())
+			exit(0);
+		if (input == "ADD")
+			phoneBook.ft_add();
+		if (input == "SEARCH")
+			phoneBook.ft_search();
 	}
 }
