@@ -6,7 +6,7 @@
 /*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 11:16:57 by esobchak          #+#    #+#             */
-/*   Updated: 2021/08/24 16:25:58 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:52:45 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ void	PhoneBook::ft_search()
 		contact[search_index - 1].ft_search_index(search_index);
 	}
 	else
-		std::cout << "Error input !" << std::endl;
+		std::cerr << "Error input !" << std::endl;
 }
