@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: esobchak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:41:07 by esobchak          #+#    #+#             */
-/*   Updated: 2021/08/25 18:34:02 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/09/18 15:20:21 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,13 @@ std::string	ft_mod(std::string const &s)
 
 std::string ft_rep(std::string &line, std::string const &s1, std::string const &s2)
 {
-	std::string str;
-	std::string	tmp;
-
-	for (int i = 0; i < line.size(); i++)
+	std::string str = line;
+    std::string::size_type itr = line.find(s1);
+    while(itr != std::string::npos)
 	{
-		for (int j = 0; j < s1.size() && line.size() >= s1.size(); j++)
-		{
-			if (i + j < line.size() && j < s1.size())
-			{
-				if ((line.at(i + j) == s1.at(j)) && (j == s1.size() - 1))
-				{
-					str += s2;
-					tmp.clear();
-					i += (s1.size() - 1);
-				}
-				else if (line.at(i + j) == s1.at(j))
-				{
-					tmp += line.at(i);
-					i++;
-				}
-				else
-				{
-					if (!tmp.empty())
-					{
-						str += tmp;
-						tmp.clear();
-					}
-					str += line.at(i);
-					i++;
-				}
-			}
-			// else
-			// {
-			// 	str += line.at(i);
-
-			// }
-
-
-		}
+		str.erase(itr, s1.length());
+		str.insert(itr, s2);
+        itr = str.find(s1);
 	}
 	return (str);
 }

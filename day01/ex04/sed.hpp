@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: esobchak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:41:10 by esobchak          #+#    #+#             */
-/*   Updated: 2021/08/25 15:11:57 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/09/18 15:18:16 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 class Sed
