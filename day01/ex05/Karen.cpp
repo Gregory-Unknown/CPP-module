@@ -2,11 +2,9 @@
 
 Karen::Karen()
 {
-	std::cout << "Karen is born!" << std::endl;
 }
 Karen::~Karen()
 {
-	std::cout << "Karen is gone!" << std::endl;
 }
 
 void Karen::debug()
