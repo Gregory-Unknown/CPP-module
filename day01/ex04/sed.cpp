@@ -6,7 +6,7 @@
 /*   By: esobchak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:41:07 by esobchak          #+#    #+#             */
-/*   Updated: 2021/09/18 15:20:21 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:15:37 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ std::string	ft_mod(std::string const &s)
 std::string ft_rep(std::string &line, std::string const &s1, std::string const &s2)
 {
 	std::string str = line;
-    std::string::size_type itr = line.find(s1);
-    while(itr != std::string::npos)
+	std::string::size_type itr = line.find(s1);
+	while(itr != std::string::npos)
 	{
 		str.erase(itr, s1.length());
 		str.insert(itr, s2);
-        itr = str.find(s1);
+		itr = str.find(s1);
 	}
 	return (str);
 }
