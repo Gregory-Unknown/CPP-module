@@ -1,12 +1,12 @@
-NAME		= replace
+NAME		= Serena,mylove!
 
-SRCS		= main.cpp sed.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++
 
-FLAGS		= -g -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -f
 

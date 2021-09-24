@@ -1,12 +1,12 @@
-NAME		= replace
+NAME		= Now_it’s_weird!
 
-SRCS		= main.cpp sed.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++
 
-FLAGS		= -g -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -f
 

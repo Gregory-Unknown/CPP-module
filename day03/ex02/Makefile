@@ -1,12 +1,12 @@
-NAME		= replace
+NAME		= Repetitive_work
 
-SRCS		= main.cpp sed.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++
 
-FLAGS		= -g -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -f
 

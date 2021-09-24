@@ -1,12 +1,12 @@
-NAME		= replace
+NAME		= Aaaaand...OPEN!
 
-SRCS		= main.cpp sed.cpp
+SRCS		= main.cpp ClapTrap.cpp
 
 OBJ			= $(SRCS:.cpp=.o)
 
 CC			= clang++
 
-FLAGS		= -g -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -f
 

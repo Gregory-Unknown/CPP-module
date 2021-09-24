@@ -6,7 +6,7 @@
 /*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:40:21 by esobchak          #+#    #+#             */
-/*   Updated: 2021/08/24 11:48:00 by esobchak         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:03:28 by esobchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Zombie
 	Zombie();
 	Zombie(std::string name);
 	~Zombie();
-	std::string	ft_getName();
-	void		ft_setName(std::string name);
+	std::string	getName();
+	void		setName(std::string name);
 	void		announce( void );
 };
 Zombie		*newZombie(std::string name);
