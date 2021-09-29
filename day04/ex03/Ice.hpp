@@ -1,18 +1,16 @@
 #ifndef ICE_HPP
 #define ICE_HPP
 
-class Ice {
-private:
-	Ice();
-protected:
-	std::string m_type;
+#include "AMateria.hpp"
+
+class Ice : virtual public AMateria {
 public:
-	Ice(std::string const &type);
-	Ice(Ice &mat);
+	Ice();
+	Ice(const Ice &mat);
 	virtual ~Ice();
-	Ice &operator=(Ice &mat);
+	Ice &operator=(const Ice &mat);
 	std::string const &getType() const;
-	virtual Ice* clone() const = 0;
+	virtual AMateria* clone() const;
 	virtual void use(ICharacter& target);
 };
 

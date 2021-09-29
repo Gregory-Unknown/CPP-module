@@ -1,28 +1,24 @@
-#include "Amateria.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/29 15:44:56 by esobchak          #+#    #+#             */
+/*   Updated: 2021/09/29 15:45:01 by esobchak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-AMateria::AMateria() : m_type("default materia")
-{
+#include "AMateria.hpp"
 
-}
 AMateria::AMateria(std::string const &type) : m_type(type)
 {
 
 }
-AMateria::AMateria(AMateria &mat)
-{
-	*this = mat;
-}
 AMateria::~AMateria()
 {
 
-}
-AMateria &AMateria::operator=(AMateria &mat)
-{
-	if (this != &mat)
-	{
-		m_type = mat.m_type;
-	}
-	return (*this);
 }
 std::string const &AMateria::getType() const
 {
@@ -30,9 +26,5 @@ std::string const &AMateria::getType() const
 }
 void AMateria::use(ICharacter& target)
 {
-	std::string tmp = target.getName();
-	if (tmp == "Ice")
-		std::cout << "* shoots an ice bolt at " << tmp << " *" <<std::endl;
-	if (tmp == "Cure")
-		std::cout << "* heals N " << tmp << " wounds *" <<std::endl;
+	std::cout << "* shoots an ice bolt at " <<  target.getName() << " *" << std::endl;
 }
