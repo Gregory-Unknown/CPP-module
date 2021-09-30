@@ -1,34 +1,29 @@
-NAME		= Interface
+NAME	= Interface
 
 SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-COMPILER = clang++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CC = clang++
+
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+RM = rm -rf
 
 all: $(NAME)
 
-
-%.o: %.cpp
-	$(COMPILER) $(FLAGS) -c $< -o $@
-
 $(NAME): $(OBJS)
-	${COMPILER} ${FLAGS} $(OBJS) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
+$(OBJS): %.o: %.cpp
+			$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -f $(OBJS)
+			$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
-
+			$(RM) $(NAME)
 
 re: fclean all
 
-
-test: re
-	./$(NAME)
-
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re

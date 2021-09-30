@@ -1,16 +1,18 @@
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef CURE_H
+# define CURE_H
 
-#include "AMateria.hpp"
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
+# include <iostream>
 
-class Cure : virtual public AMateria {
+class Cure: virtual public AMateria {
+private:
+	Cure &operator=(Cure const &mat);
+	Cure(Cure const &mat);
 public:
-	Cure();
-	Cure(const Cure &mat);
-	virtual ~Cure();
-	Cure &operator=(const Cure &mat);
-	std::string const &getType() const;
-	virtual AMateria* clone() const;
+	Cure(void);
+	virtual ~Cure(void);
+	virtual AMateria *clone(void) const;
 	virtual void use(ICharacter& target);
 };
 

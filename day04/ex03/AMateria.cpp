@@ -1,30 +1,32 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: esobchak <esobchak@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 15:44:56 by esobchak          #+#    #+#             */
-/*   Updated: 2021/09/29 15:45:01 by esobchak         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const &type) : m_type(type)
+AMateria::AMateria(void)
 {
 
 }
-AMateria::~AMateria()
+AMateria::AMateria(std::string const & type): m_type(type)
 {
 
 }
-std::string const &AMateria::getType() const
+AMateria::AMateria(AMateria const &mat)
+{
+	*this = mat;
+}
+AMateria &AMateria::operator=(AMateria const &mat)
+{
+	if (this != &mat)
+		m_type = mat.m_type;
+	return (*this);
+}
+AMateria::~AMateria(void)
+{
+
+}
+std::string const &	AMateria::getType(void) const
 {
 	return (m_type);
 }
-void AMateria::use(ICharacter& target)
+void	AMateria::use(ICharacter & target)
 {
-	std::cout << "* shoots an ice bolt at " <<  target.getName() << " *" << std::endl;
+	(void)target;
 }

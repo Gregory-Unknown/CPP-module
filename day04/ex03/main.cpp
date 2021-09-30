@@ -1,8 +1,8 @@
 #include "AMateria.hpp"
 #include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main()
 {
@@ -12,20 +12,19 @@ int main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	std::cout << "AAAA\n";
 	me->equip(tmp);
-	std::cout << "BBBB\n";
 	tmp = src->createMateria("cure");
-	std::cout << "CCCC\n";
 	me->equip(tmp);
-	std::cout << "DDDD\n";
-	ICharacter* bob = new Character("bob");
-	std::cout << "FFFF\n";
-	me->use(0, *bob);
-	std::cout << "GGGG\n";
-	me->use(1, *bob);
-	std::cout << "HHHH\n";
-	delete bob;
+	ICharacter* boba = new Character("boba");
+	ICharacter* biba = new Character("biba");
+	me->use(0, *biba);
+	me->use(1, *biba);
+	me->unequip(0);
+	me->unequip(1);
+	me->use(0, *boba);
+	me->use(1, *boba);
+	delete biba;
+	delete boba;
 	delete me;
 	delete src;
 	return 0;
