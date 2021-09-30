@@ -5,12 +5,10 @@ MateriaSource::MateriaSource(void): m_total(0)
 	for (int i = 0; i < 4; i++)
 		m_source[i] = NULL;
 }
-
 MateriaSource::MateriaSource(MateriaSource const &mat)
 {
 	*this = mat;
 }
-
 MateriaSource::~MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++) {
@@ -18,7 +16,6 @@ MateriaSource::~MateriaSource(void)
 			delete m_source[i];
 	}
 }
-
 MateriaSource &MateriaSource::operator=(MateriaSource const &mat)
 {
 	if (this != &mat) {
@@ -32,7 +29,6 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &mat)
 	}
 	return (*this);
 }
-
 void MateriaSource::learnMateria(AMateria *newMateria)
 {
 	if (m_total != 4) {
@@ -41,7 +37,6 @@ void MateriaSource::learnMateria(AMateria *newMateria)
 		delete newMateria;
 	}
 }
-
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
 	if (!type.empty()) {
