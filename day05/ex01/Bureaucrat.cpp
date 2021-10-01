@@ -67,9 +67,9 @@ void Bureaucrat::decrimentGrade()
 }
 void Bureaucrat::signForm(Form &crat)
 {
-	if (crat.getSign() == true)
+	if (crat.getSign())
 		std::cout << m_name << " cannot sign " << crat.getName() << " because " << crat.getName() << "is already signed" << std::endl;
-	else if (crat.getGradeSign() < this->getGrade())
+	else if (crat.getGradeSign() < m_grade)
 		std::cout << m_name << " cannot sign " << crat.getName() << " because " << m_name << " has not enough high grade" << std::endl;
 	else {
 		std::cout << m_name << " signs " << crat.getName() << std::endl;
