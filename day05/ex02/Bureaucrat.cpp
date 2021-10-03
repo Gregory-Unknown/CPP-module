@@ -76,6 +76,12 @@ void Bureaucrat::signForm(Form &crat)
 		crat.beSigned(*this);
 	}
 }
+void Bureaucrat::executeForm(const Form &form)
+{
+	if (!form.getSign())
+		throw Form::FormSignedException();
+
+}
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Too High Exception in Bureaucrat !");
