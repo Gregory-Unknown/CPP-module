@@ -19,7 +19,7 @@ public:
 	Form(const int grade_to_execute, const int grade_to_sign);
 	Form(const std::string &name, const int grade_to_sign, const int grade_to_execute);
 	Form(const Form &crat);
-	~Form();
+	virtual ~Form();
 	const Form &operator=(const Form &crat);
 	std::string getName(void) const;
 	int getGradeSign(void) const;

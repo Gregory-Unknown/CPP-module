@@ -65,7 +65,7 @@ bool Form::getSign(void) const
 void Form::beSigned(const Bureaucrat &crat)
 {
 	if (m_grade_to_sign < crat.getGrade())
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 	m_sign = true;
 }
 const char *Form::GradeTooHighException::what() const throw()

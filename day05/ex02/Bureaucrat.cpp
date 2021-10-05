@@ -79,8 +79,13 @@ void Bureaucrat::signForm(Form &crat)
 void Bureaucrat::executeForm(const Form &form)
 {
 	if (!form.getSign())
-		throw Form::FormSignedException();
-
+		std::cout << m_name << " cannot execute this form " << form.getName() << " because " << form.getName() << "is not signed" << std::endl;
+	else if (form.getGradeExecute() < m_grade)
+		std::cout << m_name << " cannot execute this form " << form.getName() << " because " << form.getName() << " has not enough high grade" << std::endl;
+	else {
+		std::cout << m_name << " execute " << form.getName() << std::endl;
+		form.execute(*this);
+	}
 }
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
