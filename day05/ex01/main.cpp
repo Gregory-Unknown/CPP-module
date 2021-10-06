@@ -5,8 +5,8 @@ int main()
 {
 	try
 	{
-		Bureaucrat tramp("Tramp", 1);
-		Form popcorn("POP", 10, 51);
+		Bureaucrat tramp("Tramp", 149);
+		Form popcorn("POP", 150, 150);
 		std::cout << tramp << std::endl;
 		std::cout << popcorn << std::endl;
 		tramp.incrementGrade();
