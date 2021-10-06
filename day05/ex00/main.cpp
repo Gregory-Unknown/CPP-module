@@ -10,8 +10,7 @@ int main()
 		std::cout << tramp << std::endl;
 		tramp.decrimentGrade();
 		std::cout << tramp << std::endl;
-		tramp.setGrade(151);
-		std::cout << tramp << std::endl;
+
 	}
 	catch (std::exception &e)
 	{

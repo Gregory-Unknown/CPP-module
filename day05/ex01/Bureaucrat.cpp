@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : m_name(name), m_grad
 	if (m_grade > 150) throw GradeTooLowException();
 	if (m_grade < 1) throw GradeTooHighException();
 }
-Bureaucrat::Bureaucrat(const Bureaucrat &crat)
+Bureaucrat::Bureaucrat(const Bureaucrat &crat) : m_name(crat.m_name)
 {
 	*this = crat;
 }
@@ -30,7 +30,6 @@ const Bureaucrat &Bureaucrat::operator=(const Bureaucrat &crat)
 {
 	if (this != &crat)
 	{
-		m_name = crat.m_name;
 		m_grade = crat.m_grade;
 		if (m_grade > 150) throw GradeTooLowException();
 		if (m_grade < 1) throw GradeTooHighException();
@@ -44,16 +43,6 @@ std::string Bureaucrat::getName(void) const
 int Bureaucrat::getGrade(void) const
 {
 	return (m_grade);
-}
-void Bureaucrat::setName(const std::string &name)
-{
-	m_name = name;
-}
-void Bureaucrat::setGrade(int grade)
-{
-	m_grade = grade;
-	if (m_grade > 150) throw GradeTooLowException();
-	if (m_grade < 1) throw GradeTooHighException();
 }
 void Bureaucrat::incrementGrade()
 {
