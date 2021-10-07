@@ -29,6 +29,7 @@ Cat &Cat::operator=(const Cat &koshak)
 		if (m_brain != nullptr)
 			delete m_brain;
 		m_brain = new Brain();
+		m_brain = koshak.m_brain;
 		for (int i = 0; i < 100; ++i)
 		{
 			m_brain->setIdeas(i, koshak.m_brain->getIdeas(i));
