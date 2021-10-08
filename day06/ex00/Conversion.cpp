@@ -1,40 +1,36 @@
 #include "Conversion.hpp"
 
-int is_int(std::string &str)
-{
-	for (int i = 0; i < str.size(); ++i) {
-		if (str.at(i) < 48 || str.at(i) > 57)
-			return (0);
-	}
-}
-
 Conversion::Conversion()
 {
 
 }
-Conversion::Conversion(const std::string &str) : m_str(str)
+Conversion::Conversion(char c) : m_char(c), m_charer(0), m_inter(0)
 {
-	if (m_str == "-inf" || m_str == "+inf" || m_str == "nan") {
-		m_type = "double";
-		double_type = m_str;
-		float_type = NULL;
-		int_type = NULL;
-		char_type = NULL;
-	}
-	if (m_str == "-inff" || m_str == "+inff" || m_str == "nanf") {
-		m_type = "float";
-		double_type = NULL;
-		float_type = m_str;
-		int_type = NULL;
-		char_type = NULL;
-	}
-	if (is_int(m_str)) {
-		m_type = "int";
-		double_type = NULL;
-		float_type = NULL;
-		int_type = m_str;
-		char_type = NULL;
-	}
+	m_int = static_cast<int>(c);
+	m_float = static_cast<float>(c);
+	m_double = static_cast<double>(c);
+}
+Conversion::Conversion(int num) : m_charer(0), m_int(num), m_inter(0)
+{
+	m_char = static_cast<char>(num);
+	m_float = static_cast<float>(num);
+	m_double = static_cast<double>(num);
+}
+Conversion::Conversion(float fnum) : m_charer(0), m_inter(0), m_float(fnum)
+{
+	if (m_float > std::numeric_limits<char>::max() || m_float < std::numeric_limits<char>::min() || isnan(m_float)) m_charer = 1;
+	if (m_float > std::numeric_limits<int>::max() || m_float < std::numeric_limits<int>::min() || isnan(m_float)) m_inter = 1;
+	m_char = static_cast<char>(fnum);
+	m_int = static_cast<int>(fnum);
+	m_double = static_cast<double>(fnum);
+}
+Conversion::Conversion(double dnum) : m_double(dnum)
+{
+	if (m_double > std::numeric_limits<char>::max() || m_double < std::numeric_limits<char>::min() || isnan(m_double)) m_charer = 1;
+	if (m_double > std::numeric_limits<int>::max() || m_double < std::numeric_limits<int>::min() || isnan(m_double)) m_inter = 1;
+	m_char = static_cast<char>(dnum);
+	m_int = static_cast<int>(dnum);
+	m_float = static_cast<float>(dnum);
 }
 Conversion::Conversion(const Conversion &con)
 {
@@ -48,40 +44,62 @@ Conversion &Conversion::operator=(const Conversion &con)
 {
 	if (this != &con)
 	{
-		m_str = con.m_str;
+		m_char = con.m_char;
+		m_charer = con.m_charer;
+		m_int = con.m_int;
+		m_inter = con.m_inter;
+		m_float = con.m_float;
+		m_double = con.m_double;
 	}
 	return (*this);
 }
-void Conversion::print()
-{
-	std::istringstream ss1;
-	std::cout << "m_str " << m_str << std::endl;
-	ss1.str(m_str);
-	int i = 0;
-	ss1 >> i;
-	std::cout << "char " << static_cast<char>(i) << std::endl;
-	std::cout << "int " << static_cast<int>(m_str[0]) << std::endl;
-	std::cout << "int " << static_cast<int>(i) << std::endl;
-	std::istringstream ss2;
-	ss2.str(m_str);
-	float j = 0.0;
-	ss2 >> j;
-	//j = static_cast<float>(j);
-	if (i - j == 0.0)
-		std::cout << "float " << static_cast<float>(m_str[0]) << ".0f" << std::endl;
-	else
-		std::cout << "float " << static_cast<float>(m_str[0]) << "f" << std::endl;
-	if (i - j == 0.0)
-		std::cout << "float " << j << ".0f" << std::endl;
-	else
-		std::cout << "float " << j << "f" << std::endl;
-	if (i - j == 0.0)
-		std::cout << "double " << static_cast<double>(j) << ".0" << std::endl;
-	else
-		std::cout << "double " << static_cast<double>(j) << std::endl;
-	if (i - j == 0.0)
-		std::cout << "double " << static_cast<double>(m_str[0]) << ".0" << std::endl;
-	else
-		std::cout << "double " << static_cast<double>(m_str[0]) << std::endl;
 
+char Conversion::getChar() const
+{
+	return (m_char);
+}
+int Conversion::getCharer() const
+{
+	return (m_charer);
+}
+int Conversion::getInt() const
+{
+	return (m_int);
+}
+int Conversion::getInter() const
+{
+	return (m_inter);
+}
+float Conversion::getFloat() const
+{
+	return (m_float);
+}
+double Conversion::getDouble() const
+{
+	return (m_double);
+}
+
+std::ostream &operator<<(std::ostream &out, const Conversion &con)
+{
+	out << "Char : ";
+	if (std::isprint(con.getChar()))
+		out << con.getChar() << std::endl;
+	else if (con.getCharer())
+		out << "impossible" << std::endl;
+	else
+		out << "Non displayable" << std::endl;
+	out << "Int : ";
+	if (con.getInter())
+		out << "impossible" << std::endl;
+	else
+		out << con.getInt() << std::endl;
+	if (con.getFloat() - con.getInt() == 0.0)
+		out << "Float : " << con.getFloat() << ".0f" <<std::endl;
+	else
+		out << "Float : " << con.getFloat() << "f" <<std::endl;
+	if (con.getDouble() - con.getInt() == 0.0)
+		out << "Double : " << con.getDouble() << ".0";
+	else
+		out << "Double : " << con.getDouble();
+	return (out);
 }
