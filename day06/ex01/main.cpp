@@ -19,15 +19,19 @@ int main()
 	Data *data = new Data();
 	data->s_str = "Kolobok !";
 	data->s_number = 2021;
-	std::cout << "Data : " << data << std::endl;
+	std::cout << "Data        : " << data << std::endl;
 	std::cout << "Data string : " << data->s_str << std::endl;
 	std::cout << "Data number : " << data->s_number << std::endl;
 	uintptr_t raw = serialize(data);
-	std::cout << "Raw : " << raw << std::endl;
+	std::cout << "Raw         : " << raw << std::endl;
 	Data *tmp = deserialize(raw);
-	std::cout << "Tmp: " << tmp << std::endl;
-	std::cout << "Tmp string : " << tmp->s_str << std::endl;
-	std::cout << "Tmp number : " << tmp->s_number << std::endl;
+	std::cout << "Tmp         : " << tmp << std::endl;
+	std::cout << "Data        : " << data << std::endl;
+	std::cout << "Tmp string  : " << tmp->s_str << std::endl;
+	std::cout << "Data string : " << data->s_str << std::endl;
+	std::cout << "Tmp number  : " << tmp->s_number << std::endl;
+	std::cout << "Data number : " << data->s_number << std::endl;
+	if (tmp == data) std::cout << "YEAH !" << std::endl;
 	delete data;
 	return (0);
 }

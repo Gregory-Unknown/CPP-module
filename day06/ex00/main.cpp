@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 					std::cout << con << std::endl;
 				}
 				else
-					std::cout << tmp_float << std::endl;
+					throw ("Invalid type !");
 			}
 			else
 				throw ("Invalid type !");
