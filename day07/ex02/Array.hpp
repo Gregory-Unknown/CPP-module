@@ -20,6 +20,9 @@ public:
 		if (!m_length) throw ArrayException("Nothing to alloc !");
 		m_data = new T[m_length];
 		if (!m_data) throw ArrayException("Bad alloc !");
+		for (unsigned int i = 0; i < m_length; ++i) {
+			m_data[i] = 0;
+		}
 	}
 	Array(const Array &ar)
 	{
@@ -35,7 +38,7 @@ public:
 			m_length = ar.m_length;
 			m_data = new T[m_length];
 			if (!m_data) throw ArrayException("Bad alloc !");
-			for (int i = 0; i < m_length; ++i) {
+			for (unsigned int i = 0; i < m_length; ++i) {
 				m_data[i] = ar.m_data[i];
 			}
 		}
