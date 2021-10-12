@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 template<typename T>
 class Array {
 private:
@@ -14,22 +13,23 @@ public:
 	{
 
 	}
-	Array(unsigned int length)
+	Array(unsigned int length) : m_data(NULL), m_length(0)
 	{
+		if (length == 0) throw ArrayException("Nothing to alloc !");
 		m_length = length;
-		if (!m_length) throw ArrayException("Nothing to alloc !");
 		m_data = new T[m_length];
 		if (!m_data) throw ArrayException("Bad alloc !");
 		for (unsigned int i = 0; i < m_length; ++i) {
 			m_data[i] = 0;
 		}
 	}
-	Array(const Array &ar)
+	Array(const Array &ar) : m_data(NULL), m_length(0)
 	{
 		*this = ar;
 	}
 	~Array() {
-		delete [] m_data;
+		if (m_data)
+			delete [] m_data;
 	}
 	Array &operator=(const Array &ar)
 	{
@@ -65,7 +65,5 @@ public:
 		}
 	};
 };
-
-
 
 #endif
